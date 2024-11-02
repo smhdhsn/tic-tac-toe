@@ -3,7 +3,7 @@ This module contains the Board class for managing a Tic-Tac-Toe game.
 """
 
 from typing import List
-from .cell import Cell
+from .mark import Mark
 
 class Board:
     """
@@ -15,20 +15,20 @@ class Board:
         Initializes a 3x3 board with all cells set to EMPTY.
         """
 
-        self.grid: List[List[Cell]] = [
-            [Cell.EMPTY, Cell.EMPTY, Cell.EMPTY],
-            [Cell.EMPTY, Cell.EMPTY, Cell.EMPTY],
-            [Cell.EMPTY, Cell.EMPTY, Cell.EMPTY]
+        self.grid: List[List[Mark]] = [
+            [Mark.EMPTY, Mark.EMPTY, Mark.EMPTY],
+            [Mark.EMPTY, Mark.EMPTY, Mark.EMPTY],
+            [Mark.EMPTY, Mark.EMPTY, Mark.EMPTY]
         ]
 
-    def set_cell(self, column: int, row: int, cell: Cell) -> None:
+    def set_mark(self, column: int, row: int, mark: Mark) -> None:
         """
-        Sets the specified cell to a given value.
+        Sets a specified cell to a given value.
 
         Args:
             row (int): The row index in the grid (0-2).
             column (int): The column index in the grid (0-2).
-            cell (Cell): The Cell instance to place in the specified position.
+            mark (Mark): The mark inside a cell in a specified position of the board.
 
         Raises:
             IndexError: If the specified row or column is out of bounds.
@@ -37,18 +37,18 @@ class Board:
         if not (0 <= row < 3 and 0 <= column < 3):
             raise IndexError("Row and column indices must be between 0 and 2.")
 
-        self.grid[column][row] = cell
+        self.grid[column][row] = mark
 
-    def get_cell(self, column: int, row: int) -> str:
+    def get_mark(self, column: int, row: int) -> str:
         """
-        Retrieves the cell at a specified position in the grid.
+        Retrieves the mark inside a cell at a specified position in the grid.
 
         Args:
             row (int): The row index in the grid (0-2).
             column (int): The column index in the grid (0-2).
 
         Returns:
-            str: The value of a cell in a given position.
+            str: The value of a cell in a given position on the grid.
 
         Raises:
             IndexError: If the specified row or column is out of bounds.

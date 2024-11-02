@@ -15,11 +15,11 @@ def print_board(board: Board) -> None:
     print(
         "     0   1   2  ",
         "   ┌───┬───┬───┐",
-        f" 0 │ {board.get_cell(0, 0)} │ {board.get_cell(1, 0)} │ {board.get_cell(2, 0)} │",
+        f" 0 │ {board.get_mark(0, 0)} │ {board.get_mark(1, 0)} │ {board.get_mark(2, 0)} │",
         "   ├───┼───┼───┤",
-        f" 1 │ {board.get_cell(0, 1)} │ {board.get_cell(1, 1)} │ {board.get_cell(2, 1)} │",
+        f" 1 │ {board.get_mark(0, 1)} │ {board.get_mark(1, 1)} │ {board.get_mark(2, 1)} │",
         "   ├───┼───┼───┤",
-        f" 2 │ {board.get_cell(0, 2)} │ {board.get_cell(1, 2)} │ {board.get_cell(2, 2)} │",
+        f" 2 │ {board.get_mark(0, 2)} │ {board.get_mark(1, 2)} │ {board.get_mark(2, 2)} │",
         "   └───┴───┴───┘",
         sep="\n"
     )

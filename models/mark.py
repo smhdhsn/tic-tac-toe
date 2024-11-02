@@ -4,9 +4,9 @@ This package defines the Mark enums, representing possible states of a cell in a
 
 from enum import Enum
 
-class Cell(Enum):
+class Mark(Enum):
     """
-    Enum for possible states of each cell in a Tic-Tac-Toe board.
+    Enum for possible marks inside each cell in a Tic-Tac-Toe board.
     """
 
     EMPTY: str = ' '

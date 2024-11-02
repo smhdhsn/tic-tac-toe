@@ -2,9 +2,9 @@
 This package contains the functions for getting inputs from user.
 """
 
-from models import Cell
+from models import Mark
 
-def read_player_mark(msg: str) -> Cell:
+def read_player_mark(msg: str) -> Mark:
     """
     Reads player's mark from input.
 
@@ -16,7 +16,7 @@ def read_player_mark(msg: str) -> Cell:
     """
     s = input(msg).strip().upper()
 
-    if s not in {Cell.X.value, Cell.O.value}:
+    if s not in {Mark.X.value, Mark.O.value}:
         raise ValueError("Please enter either 'X' or 'O'.")
 
-    return Cell(s)
+    return Mark(s)
