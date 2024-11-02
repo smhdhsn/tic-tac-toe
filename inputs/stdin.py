@@ -2,11 +2,11 @@
 This package contains the functions for getting inputs from user.
 """
 
-from game import Mark
+from models import Cell
 
-def read_player_marker(msg: str) -> Mark:
+def read_player_mark(msg: str) -> Cell:
     """
-    Reads player's marker from input.
+    Reads player's mark from input.
 
     Raises:
         ValueError: If user's input is not 'X' or 'O'.
@@ -16,7 +16,7 @@ def read_player_marker(msg: str) -> Mark:
     """
     s = input(msg).strip().upper()
 
-    if s not in {Mark.X.value, Mark.O.value}:
+    if s not in {Cell.X.value, Cell.O.value}:
         raise ValueError("Please enter either 'X' or 'O'.")
 
-    return Mark(s)
+    return Cell(s)

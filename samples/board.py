@@ -1,20 +1,15 @@
 """
-Module to create a board for the ticktacktoe game.
+Module to create a board for the Tic-Tac-Toe game.
 """
 
-from typing import List
-from game import Mark
+from models import Board
 
-def create_empty_board() -> List[List[Mark]]:
+def create_empty_board() -> Board:
     """
     Creates an empty board to initialize the game.
 
     Returns:
-        List[List[Mark]]: The empty board as the initial state for the game.
+        Board: The empty board as the initial state for the game.
     """
 
-    return [
-        [Mark.EMPTY, Mark.EMPTY, Mark.EMPTY],
-        [Mark.EMPTY, Mark.EMPTY, Mark.EMPTY],
-        [Mark.EMPTY, Mark.EMPTY, Mark.EMPTY]
-    ]
+    return Board()
