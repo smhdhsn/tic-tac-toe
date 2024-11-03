@@ -15,20 +15,16 @@ class Board:
         Initializes a 3x3 board with all cells set to EMPTY.
         """
 
-        self.grid: List[List[Mark]] = [
-            [Mark.EMPTY, Mark.EMPTY, Mark.EMPTY],
-            [Mark.EMPTY, Mark.EMPTY, Mark.EMPTY],
-            [Mark.EMPTY, Mark.EMPTY, Mark.EMPTY]
-        ]
+        self.grid: List[List[Mark]] = [[Mark.EMPTY for _ in range(3)] for _ in range(3)]
 
     def set_mark(self, column: int, row: int, mark: Mark) -> None:
         """
-        Sets a specified cell to a given value.
+        Sets a specified cell to a given mark.
 
         Args:
             row (int): The row index in the grid (0-2).
             column (int): The column index in the grid (0-2).
-            mark (Mark): The mark inside a cell in a specified position of the board.
+            mark (Mark): The mark to set in the specified cell.
 
         Raises:
             IndexError: If the specified row or column is out of bounds.
@@ -48,7 +44,7 @@ class Board:
             column (int): The column index in the grid (0-2).
 
         Returns:
-            str: The value of a cell in a given position on the grid.
+            str: The mark at the specified position.
 
         Raises:
             IndexError: If the specified row or column is out of bounds.
@@ -58,3 +54,20 @@ class Board:
             raise IndexError("Row and column indices must be between 0 and 2.")
 
         return self.grid[column][row].value
+
+    def print(self) -> None:
+        """
+        Prints the board to the console.
+        """
+
+        print(
+            "     0   1   2  ",
+            "   ┌───┬───┬───┐",
+            f" 0 │ {self.get_mark(0, 0)} │ {self.get_mark(1, 0)} │ {self.get_mark(2, 0)} │",
+            "   ├───┼───┼───┤",
+            f" 1 │ {self.get_mark(0, 1)} │ {self.get_mark(1, 1)} │ {self.get_mark(2, 1)} │",
+            "   ├───┼───┼───┤",
+            f" 2 │ {self.get_mark(0, 2)} │ {self.get_mark(1, 2)} │ {self.get_mark(2, 2)} │",
+            "   └───┴───┴───┘",
+            sep="\n"
+        )

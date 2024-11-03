@@ -2,9 +2,9 @@
 This module contains the functions for getting inputs from user.
 """
 
-from .stdin import read_human_player_mark
+from .mark import decide_marks
 
 # Expose methods at the package level.
 __all__ = [
-    'read_human_player_mark'
+    'decide_marks'
 ]
