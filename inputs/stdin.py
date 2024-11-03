@@ -4,7 +4,7 @@ This package contains the functions for getting inputs from user.
 
 from models import Mark
 
-def read_human_player_mark(msg: str) -> Mark:
+def read_human_player_mark(msg: str) -> tuple:
     """
     Reads human player's mark from input.
 
@@ -14,9 +14,9 @@ def read_human_player_mark(msg: str) -> Mark:
     Returns:
         str: User's mark.
     """
-    s = input(msg).strip().upper()
+    s = Mark(input(msg).strip().upper())
 
-    if s not in {Mark.X.value, Mark.O.value}:
+    if s not in {Mark.X, Mark.O}:
         raise ValueError("Please enter either 'X' or 'O'.")
 
-    return Mark(s)
+    return s
