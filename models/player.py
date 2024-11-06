@@ -3,6 +3,7 @@ This package defines the player for the Tic-Tac-Toe game.
 """
 
 from abc import ABC, abstractmethod
+from .position import Position
 from .board import Board
 from .mark import Mark
 
@@ -38,10 +39,13 @@ class Player(ABC):
         return self.mark
 
     @abstractmethod
-    def get_next_move(self, board: Board) -> None:
+    def get_next_move(self, board: Board) -> Position:
         """
         Gets the next move of this player in a given board.
 
         Args:
             board (Board): The board in which the player has to make their next move.
+
+        Returns:
+            Position: The position in the board where the player wants to make their next move.
         """
