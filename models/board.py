@@ -17,13 +17,13 @@ class Board:
 
         self.grid: List[List[Mark]] = [[Mark.EMPTY for _ in range(3)] for _ in range(3)]
 
-    def set_mark(self, column: int, row: int, mark: Mark) -> None:
+    def set_mark(self, row: int, column: int, mark: Mark) -> None:
         """
         Sets a specified cell to a given mark.
 
         Args:
-            row (int): The row index in the grid (0-2).
             column (int): The column index in the grid (0-2).
+            row (int): The row index in the grid (0-2).
             mark (Mark): The mark to set in the specified cell.
 
         Raises:
@@ -33,15 +33,15 @@ class Board:
         if not (0 <= row < 3 and 0 <= column < 3):
             raise IndexError("Row and column indices must be between 0 and 2.")
 
-        self.grid[column][row] = mark
+        self.grid[row][column] = mark
 
-    def get_mark(self, column: int, row: int) -> str:
+    def get_mark(self, row: int, column: int) -> str:
         """
         Retrieves the mark inside a cell at a specified position in the grid.
 
         Args:
-            row (int): The row index in the grid (0-2).
             column (int): The column index in the grid (0-2).
+            row (int): The row index in the grid (0-2).
 
         Returns:
             str: The mark at the specified position.
@@ -53,15 +53,15 @@ class Board:
         if not (0 <= row < 3 and 0 <= column < 3):
             raise IndexError("Row and column indices must be between 0 and 2.")
 
-        return self.grid[column][row].value
+        return self.grid[row][column].value
 
-    def is_cell_empty(self, column: int, row: int) -> bool:
+    def is_cell_empty(self, row: int, column: int) -> bool:
         """
         Checks if a cell at a specified position is empty.
 
         Args:
-            column (int): The column index in the grid (0-2).
             row (int): The row index in the grid (0-2).
+            column (int): The column index in the grid (0-2).
 
         Returns:
             bool: True if the cell is empty, False otherwise.
@@ -73,7 +73,7 @@ class Board:
         if not (0 <= column < 3 and 0 <= row < 3):
             raise IndexError("Column and row indices must be between 0 and 2.")
 
-        return self.grid[column][row] == Mark.EMPTY
+        return self.grid[row][column] == Mark.EMPTY
 
     def print(self) -> None:
         """
@@ -83,11 +83,11 @@ class Board:
         print(
             "     0   1   2  ",
             "   ┌───┬───┬───┐",
-            f" 0 │ {self.get_mark(0, 0)} │ {self.get_mark(1, 0)} │ {self.get_mark(2, 0)} │",
+            f" 0 │ {self.get_mark(0, 0)} │ {self.get_mark(0, 1)} │ {self.get_mark(0, 2)} │",
             "   ├───┼───┼───┤",
-            f" 1 │ {self.get_mark(0, 1)} │ {self.get_mark(1, 1)} │ {self.get_mark(2, 1)} │",
+            f" 1 │ {self.get_mark(1, 0)} │ {self.get_mark(1, 1)} │ {self.get_mark(1, 2)} │",
             "   ├───┼───┼───┤",
-            f" 2 │ {self.get_mark(0, 2)} │ {self.get_mark(1, 2)} │ {self.get_mark(2, 2)} │",
+            f" 2 │ {self.get_mark(2, 0)} │ {self.get_mark(2, 1)} │ {self.get_mark(2, 2)} │",
             "   └───┴───┴───┘",
             sep="\n"
         )
