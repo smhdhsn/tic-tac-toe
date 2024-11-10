@@ -3,6 +3,7 @@ This module contains the Board class for managing a Tic-Tac-Toe game.
 """
 
 from typing import List
+import copy
 from .mark import Mark
 
 class Board:
@@ -16,6 +17,16 @@ class Board:
         """
 
         self.grid: List[List[Mark]] = [[Mark.EMPTY for _ in range(3)] for _ in range(3)]
+    
+    def get_grid(self) -> List[List[Mark]]:
+        """
+        Returns a copy of the board's grid.
+
+        Returns:
+            List[List[Mark]]: The grid inside the board.
+        """
+
+        return copy.deepcopy(self.grid)
 
     def set_mark(self, row: int, column: int, mark: Mark) -> None:
         """
@@ -74,20 +85,3 @@ class Board:
             raise IndexError("Column and row indices must be between 0 and 2.")
 
         return self.grid[row][column] == Mark.EMPTY
-
-    def print(self) -> None:
-        """
-        Prints the board to the console.
-        """
-
-        print(
-            "     0   1   2  ",
-            "   ┌───┬───┬───┐",
-            f" 0 │ {self.get_mark(0, 0)} │ {self.get_mark(0, 1)} │ {self.get_mark(0, 2)} │",
-            "   ├───┼───┼───┤",
-            f" 1 │ {self.get_mark(1, 0)} │ {self.get_mark(1, 1)} │ {self.get_mark(1, 2)} │",
-            "   ├───┼───┼───┤",
-            f" 2 │ {self.get_mark(2, 0)} │ {self.get_mark(2, 1)} │ {self.get_mark(2, 2)} │",
-            "   └───┴───┴───┘",
-            sep="\n"
-        )
