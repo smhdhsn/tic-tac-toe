@@ -3,7 +3,7 @@ This package defines the player for the Tic-Tac-Toe game.
 """
 
 from abc import ABC, abstractmethod
-from .position import Position
+from dto import Position
 from .board import Board
 from .mark import Mark
 
