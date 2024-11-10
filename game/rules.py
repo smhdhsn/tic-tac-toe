@@ -62,7 +62,7 @@ def winner_check(board: Board) -> Mark|None:
     for row in grid:
         if row[0] == row[1] == row[2] and row[0] != Mark.EMPTY:
             return row[0]
-        
+
     for col in range(3):
         if grid[0][col] == grid[1][col] == grid[2][col] and grid[0][col] != Mark.EMPTY:
             return grid[0][col]
