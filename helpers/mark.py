@@ -26,6 +26,6 @@ def decide_marks(msg: str) -> Tuple[Mark, Mark]:
         raise ValueError("Please enter either 'X' or 'O'.")
 
     human_mark = Mark(human_input)
-    computer_mark = Mark.O if human_mark == Mark.X else Mark.X
+    ai_mark = Mark.O if human_mark == Mark.X else Mark.X
 
-    return human_mark, computer_mark
+    return human_mark, ai_mark

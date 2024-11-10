@@ -4,7 +4,7 @@ Entry point for the Tic-Tac-Toe application.
 
 from models import Board, Human, AI
 from helpers import announce_result, decide_marks
-from game import start_game
+from game import run
 
 def main():
     """
@@ -18,7 +18,7 @@ def main():
     max_player = Human(human_mark)
     min_player = AI(ai_mark)
 
-    result = start_game(
+    result = run(
         max_player=max_player,
         min_player=min_player,
         board=board,
