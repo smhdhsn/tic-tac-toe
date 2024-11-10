@@ -4,6 +4,7 @@ This package contains the functions for announcing the result of the Tic-Tac-Toe
 
 from models import Mark
 
+
 def announce_result(mark: Mark) -> None:
     """
     Announcing the result of the game.

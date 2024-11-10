@@ -5,6 +5,7 @@ Has the functions for representing a board on the /dev/stdout.
 from os import system, name as os_name
 from models import Board
 
+
 def print_board(board: Board) -> None:
     """
     Prints the board to the console.
@@ -26,8 +27,9 @@ def print_board(board: Board) -> None:
         "   ├───┼───┼───┤",
         f" 2 │ {board.get_mark(2, 0)} │ {board.get_mark(2, 1)} │ {board.get_mark(2, 2)} │",
         "   └───┴───┴───┘",
-        sep="\n"
+        sep="\n",
     )
+
 
 def _clear_screen() -> None:
     """
@@ -37,4 +39,4 @@ def _clear_screen() -> None:
     - On macOS and Linux, it uses the 'clear' command.
     """
 
-    system('cls' if os_name == 'nt' else 'clear')
+    system("cls" if os_name == "nt" else "clear")

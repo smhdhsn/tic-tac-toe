@@ -6,6 +6,7 @@ from models import Board, Human, AI
 from helpers import announce_result, decide_marks
 from game import run
 
+
 def main():
     """
     Main function to prepare and begin the game.
@@ -25,6 +26,7 @@ def main():
     )
 
     announce_result(result)
+
 
 if __name__ == "__main__":
     main()

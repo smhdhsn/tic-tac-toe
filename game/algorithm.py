@@ -7,6 +7,7 @@ from models import Player, Board, Mark
 from helpers import print_board
 from .rules import is_board_full, winner_check
 
+
 def run(max_player: Player, min_player: Player, board: Board) -> Mark:
     """
     This function is responsible for managing the states and the rules of the game.
@@ -40,7 +41,7 @@ def run(max_player: Player, min_player: Player, board: Board) -> Mark:
     }
 
     player: Player = players[Mark.X]
-    result: Mark|None
+    result: Mark | None
 
     while not is_board_full(board):
         print_board(board)

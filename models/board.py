@@ -6,6 +6,7 @@ from typing import List
 import copy
 from .mark import Mark
 
+
 class Board:
     """
     This class is for managing the Tic-Tac-Toe game.

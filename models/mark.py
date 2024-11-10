@@ -4,6 +4,7 @@ This package defines the Mark enums, representing possible states of a cell in a
 
 from enum import Enum
 
+
 class Mark(Enum):
     """
     Enum for possible marks inside each cell in a Tic-Tac-Toe board.
@@ -14,17 +15,17 @@ class Mark(Enum):
         O (str): Represents a cell marked with 'O'.
     """
 
-    EMPTY: str = ' '
+    EMPTY: str = " "
     """
     The mark for an empty cell.
     """
 
-    X: str = 'X'
+    X: str = "X"
     """
     A cell marked by player 'X'.
     """
 
-    O: str = 'O'
+    O: str = "O"
     """
     A cell marked by player 'O'.
     """

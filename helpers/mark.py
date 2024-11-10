@@ -5,6 +5,7 @@ This package contains the functions for getting inputs from user.
 from typing import Tuple
 from models import Mark
 
+
 def decide_marks(msg: str) -> Tuple[Mark, Mark]:
     """
     Decide human player's mark based on user input and assigns the opposite mark to the computer.

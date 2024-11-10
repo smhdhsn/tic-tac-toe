@@ -2,12 +2,17 @@
 This package defines the position of a cell in the Tic-Tac-Toe game.
 """
 
+
 class Position:
     """
     Represents a position on the board.
     """
 
-    def __init__(self, row: int, column: int,):
+    def __init__(
+        self,
+        row: int,
+        column: int,
+    ):
         """
         Initializes the Position object.
 
