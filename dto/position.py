@@ -17,8 +17,8 @@ class Position:
         Initializes the Position object.
 
         Args:
-            column (int): The column of the position.
             row (int): The row of the position.
+            column (int): The column of the position.
 
         Raises:
             IndexError: If the column or row is less than 0 or greater than 2.
