@@ -41,8 +41,8 @@ def create_state_space(state: State, mark: Mark):
 
         state.append_next_state(
             State(
+                board,
                 parent_state=state,
-                content=board,
             )
         )
 
