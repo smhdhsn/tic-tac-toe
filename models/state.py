@@ -93,6 +93,16 @@ class State:
 
         return self.value.get_grid()
 
+    def get_value(self) -> Board:
+        """
+        Returns the board within this node.
+
+        Returns:
+            Board: The board of the game in the current state.
+        """
+
+        return self.value
+
     def path_cost(self) -> int:
         """
         Calculates the path cost of reaching this state.
