@@ -4,7 +4,7 @@ Entry point for calculating state space for the agent in the Tic-Tac-Toe applica
 
 from pickle import dump
 from models import State, Board, Mark
-from search import create_state_space
+from search import StateSpace
 
 
 def main():
@@ -16,7 +16,7 @@ def main():
     initial_state: State = State(empty_board)
 
     for starting_player in [Mark.X, Mark.O]:
-        create_state_space(
+        StateSpace().create(
             initial_state,
             starting_player,
         )

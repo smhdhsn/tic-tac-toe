@@ -93,6 +93,16 @@ class State:
 
         return self.value.get_grid()
 
+    def get_content_hash(self) -> str:
+        """
+        Returns string representation of the board which is in this node.
+
+        Returns:
+            str: The string representation of the grid.
+        """
+
+        return self.value.get_grid_hash()
+
     def get_value(self) -> Board:
         """
         Returns the board within this node.
