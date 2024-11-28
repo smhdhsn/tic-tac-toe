@@ -5,10 +5,10 @@ This package is the ai player in the game.
 from pickle import load
 from search import StateSpace
 from dto import Position
-from . import Player, Board, State, Mark
+from models import Player, Board, State, Mark
 
 
-class AI(Player):
+class Agent(Player):
     """
     This class holds the functionalities for the ai player in the Tic-Tac-Toe game.
     """
@@ -18,7 +18,7 @@ class AI(Player):
         Initializes the AI player with a specific mark and loads the state space.
 
         Args:
-            mark (Mark): The mark assigned to the AI player.
+            mark (Mark): The mark assigned to the agent.
         """
 
         super().__init__(mark)
