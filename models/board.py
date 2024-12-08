@@ -62,13 +62,10 @@ class Board:
             IndexError: If the specified row or column is out of bounds.
         """
 
-        row = position.get_row()
-        column = position.get_column()
-
-        if not (0 <= row < 3 and 0 <= column < 3):
+        if not (0 <= position.row < 3 and 0 <= position.column < 3):
             raise IndexError("Row and column indices must be between 0 and 2.")
 
-        self.grid[row][column] = mark
+        self.grid[position.row][position.column] = mark
 
     def get_mark(self, row: int, column: int) -> str:
         """
@@ -104,10 +101,7 @@ class Board:
             IndexError: If the specified row or column is out of bounds.
         """
 
-        row = position.get_row()
-        column = position.get_column()
-
-        if not (0 <= row < 3 and 0 <= column < 3):
+        if not (0 <= position.row < 3 and 0 <= position.column < 3):
             raise IndexError("Column and row indices must be between 0 and 2.")
 
-        return self.grid[row][column] == Mark.EMPTY
+        return self.grid[position.row][position.column] == Mark.EMPTY

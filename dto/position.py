@@ -2,50 +2,19 @@
 This package defines the position of a cell in the Tic-Tac-Toe game.
 """
 
+from dataclasses import dataclass
 
+
+@dataclass(frozen=True)
 class Position:
     """
-    Represents a position on the board.
+    Represents a position on the Tic-Tac-Toe board.
+    Indices must be between 0 and 2 for both row and column.
     """
 
-    def __init__(
-        self,
-        row: int,
-        column: int,
-    ):
-        """
-        Initializes the Position object.
+    row: int
+    column: int
 
-        Args:
-            row (int): The row of the position.
-            column (int): The column of the position.
-
-        Raises:
-            IndexError: If the column or row is less than 0 or greater than 2.
-        """
-
-        if not (0 <= column < 3 and 0 <= row < 3):
-            raise IndexError("Column and row indices must be between 0 and 2.")
-
-        self.column: int = column
-        self.row: int = row
-
-    def get_column(self) -> int:
-        """
-        Returns the column of the position.
-
-        Returns:
-            int: The column of the position.
-        """
-
-        return self.column
-
-    def get_row(self) -> int:
-        """
-        Returns the row of the position.
-
-        Returns:
-            int: The row of the position.
-        """
-
-        return self.row
+    def __post_init__(self):
+        if not (0 <= self.row < 3 and 0 <= self.column < 3):
+            raise ValueError("Row and column indices must be between 0 and 2.")
