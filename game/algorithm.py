@@ -4,7 +4,7 @@ This package is responsible for managing every state of the Tic-Tac-Toe game.
 
 from typing import Dict
 from models import Player, Board, Mark
-from helpers import print_board
+from views import print_board
 from .rules import is_board_full, winner_check
 
 

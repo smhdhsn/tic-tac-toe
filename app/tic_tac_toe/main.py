@@ -2,8 +2,8 @@
 Entry point for the Tic-Tac-Toe application.
 """
 
-from models import Board, Human, Agent
 from helpers import announce_result, decide_marks
+from models import Board, Human, Agent
 from game import run
 
 
