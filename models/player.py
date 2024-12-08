@@ -21,11 +21,11 @@ class Player(ABC):
             mark (Mark): The mark for this player.
 
         Raises:
-            ValueError: If the given mark is not an instance of the Mark.
+            TypeError: If the given mark is not an instance of the Mark.
         """
 
         if not isinstance(mark, Mark):
-            raise ValueError("Given mark must be an instance of Mark class.")
+            raise TypeError("Given mark must be an instance of Mark class.")
 
         self.mark: Mark = mark
 

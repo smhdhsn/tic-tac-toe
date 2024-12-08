@@ -17,9 +17,9 @@ class StateSpace:
         Initializes the creation of state space class.
         """
 
-        self.created_states: Dict[str:State] = {}
+        self.visited_states: Dict[str, State] = {}
 
-    def create(self, state: State, mark: Mark):
+    def create(self, state: State, mark: Mark) -> None:
         """
         Creates state space of the game.
 
@@ -28,16 +28,16 @@ class StateSpace:
             mark (Mark): The mark of the player in the turn.
 
         Raises:
-            ValueError: If the given state is not an instance of State class.
-            ValueError: If the given mark is not an instance of Mark class.
+            TypeError: If the given state is not an instance of State class.
+            TypeError: If the given mark is not an instance of Mark class.
             ValueError: If the given mark is neither 'X' or 'O'.
         """
 
         if not isinstance(state, State):
-            raise ValueError("The given state is not an instance of State class.")
+            raise TypeError("The given state is not an instance of State class.")
 
         if not isinstance(mark, Mark):
-            raise ValueError("The given mark is not an instance of Mark class.")
+            raise TypeError("The given mark is not an instance of Mark class.")
 
         if mark is Mark.EMPTY:
             raise ValueError("The given mark has to be either 'X' or 'O'.")
@@ -46,12 +46,12 @@ class StateSpace:
             return
 
         grid_hash = self.get_hash(state, mark)
-        if grid_hash in self.created_states:
-            existing_state: State = self.created_states[grid_hash]
+        if grid_hash in self.visited_states:
+            existing_state: State = self.visited_states[grid_hash]
             state.next_states = existing_state.get_next_states()
             return
 
-        self.created_states[grid_hash] = state
+        self.visited_states[grid_hash] = state
 
         grid = state.get_content()
         positions = get_empty_cells(grid)
@@ -86,16 +86,16 @@ class StateSpace:
             str: Player's mark + string representation of the grid inside of the current state.
 
         Raises:
-            ValueError: If the given state is not an instance of State class.
-            ValueError: If the given mark is not an instance of Mark class.
+            TypeError: If the given state is not an instance of State class.
+            TypeError: If the given mark is not an instance of Mark class.
             ValueError: If the given mark is neither 'X' or 'O'.
         """
 
         if not isinstance(state, State):
-            raise ValueError("The given state is not an instance of State class.")
+            raise TypeError("The given state is not an instance of State class.")
 
         if not isinstance(mark, Mark):
-            raise ValueError("The given mark is not an instance of Mark class.")
+            raise TypeError("The given mark is not an instance of Mark class.")
 
         if mark is Mark.EMPTY:
             raise ValueError("The given mark has to be either 'X' or 'O'.")

@@ -57,11 +57,11 @@ def winner_check(board: Board) -> Mark | None:
         board (Board): The board to check the result of the game on.
 
     Raises:
-        ValueError: If the provided board object is not an instance of Board.
+        TypeError: If the provided board object is not an instance of Board.
     """
 
     if not isinstance(board, Board):
-        raise ValueError("Given board must be an instance of Board class.")
+        raise TypeError("Given board must be an instance of Board class.")
 
     grid = board.get_grid()
 
@@ -93,11 +93,11 @@ def is_board_full(board: Board) -> bool:
         bool: Weather the board has an empty cell or not.
 
     Raises:
-        ValueError: If the provided board object is not an instance of Board.
+        TypeError: If the provided board object is not an instance of Board.
     """
 
     if not isinstance(board, Board):
-        raise ValueError("Given board must be an instance of Board class.")
+        raise TypeError("Given board must be an instance of Board class.")
 
     for row in board.get_grid():
         for cell in row:
@@ -124,15 +124,15 @@ def utility(board: Board, mark: Mark, *, is_max_player: bool = True) -> int | No
             None if the game is ongoing.
 
     Raises:
-        ValueError: If the provided board object is not an instance of Board.
-        ValueError: If the provided boardmark object is not an instance of Mark.
+        TypeError: If the provided board object is not an instance of Board.
+        TypeError: If the provided boardmark object is not an instance of Mark.
     """
 
     if not isinstance(board, Board):
-        raise ValueError("The given board must be an instance of Board class.")
+        raise TypeError("The given board must be an instance of Board class.")
 
     if not isinstance(mark, Mark):
-        raise ValueError("The given mark must be an instance of Mark class.")
+        raise TypeError("The given mark must be an instance of Mark class.")
 
     result = winner_check(board)
     if result is None:
