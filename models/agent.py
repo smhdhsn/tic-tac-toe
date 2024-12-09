@@ -68,8 +68,8 @@ class Agent(Player):
         best_value: float = float("inf")
         best_state: State = None
         for state in self.current_state.get_next_states():
-            score = min_value(state, self.get_mark())
-            if best_value > score:
+            score = min_value(state, Mark.X if self.get_mark() == Mark.O else Mark.O)
+            if score < best_value:
                 best_value = score
                 best_state = state
 
@@ -126,8 +126,8 @@ class Agent(Player):
                 return
 
             if not state.is_leaf():
-                for next in state.get_next_states():
-                    self.frontier.add(next)
+                for next_state in state.get_next_states():
+                    self.frontier.add(next_state)
 
         raise NotImplementedError(
             "Could not find the current state inside state space."
