@@ -126,8 +126,8 @@ class Agent(Player):
                 return
 
             if not state.is_leaf():
-                for next in state.get_next_states():
-                    self.frontier.add(next)
+                for next_state in state.get_next_states():
+                    self.frontier.add(next_state)
 
         raise NotImplementedError(
             "Could not find the current state inside state space."
