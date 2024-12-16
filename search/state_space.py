@@ -5,7 +5,7 @@ This package is responsible for creating the state space of the Tic-Tac-Toe game
 from typing import Dict
 from beartype import beartype
 from models import Board, State, Mark
-from game import get_empty_cells, winner_check
+from game import get_empty_cells, winner_check, get_turn_mark
 
 
 class StateSpace:
@@ -37,6 +37,9 @@ class StateSpace:
             raise ValueError("The given mark has to be either 'X' or 'O'.")
 
         if winner_check(state.get_value()) is not None:
+            return
+
+        if get_turn_mark(state.get_value()) is not mark:
             return
 
         grid_hash = self.get_hash(state, mark)
