@@ -3,9 +3,11 @@ This package contains the functions for getting inputs from user.
 """
 
 from typing import Tuple
+from beartype import beartype
 from models import Mark
 
 
+@beartype
 def decide_marks(msg: str) -> Tuple[Mark, Mark]:
     """
     Decide human player's mark based on user input and assigns the opposite mark to the computer.
@@ -13,11 +15,11 @@ def decide_marks(msg: str) -> Tuple[Mark, Mark]:
     Args:
         msg (str): The message to display to the user.
 
-    Raises:
-        ValueError: If the user's input is not 'X' or 'O'.
-
     Returns:
         Tuple[Mark, Mark]: A tuple containing the human player's mark and the computer's mark.
+
+    Raises:
+        ValueError: If the user's input is not 'X' or 'O'.
     """
 
     human_input = input(msg).strip().upper()

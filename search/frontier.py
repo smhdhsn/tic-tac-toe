@@ -3,6 +3,7 @@ This module provides a simple abstraction for managing states to explore during 
 """
 
 from collections import deque
+from beartype import beartype
 from models import State
 
 
@@ -11,35 +12,25 @@ class Frontier:
     A generic frontier that can manage states to be explored.
     """
 
+    @beartype
     def __init__(self, initial_state: State):
         """
         Initializes the frontier to manage exploration of state space.
 
         Args:
             initial_state (State): The state to start exploring from.
-
-        Raises:
-            TypeError: If the given state is not an instance of State class.
         """
-
-        if not isinstance(initial_state, State):
-            raise TypeError("The given state is not an instance of State class.")
 
         self._container: deque[State] = deque([initial_state])
 
+    @beartype
     def add(self, state: State) -> None:
         """
         Add a state to the frontier.
 
         Args:
             state (State): The state to add to the frontier.
-
-        Raises:
-            TypeError: If the given state is not an instance of State class.
         """
-
-        if not isinstance(state, State):
-            raise TypeError("The given state is not an instance of State class.")
 
         self._container.append(state)
 
@@ -69,6 +60,7 @@ class Frontier:
 
         return len(self._container) == 0
 
+    @beartype
     def set_root(self, state: State) -> None:
         """
         Reset the frontier so that the given state is now the root state.
@@ -76,12 +68,7 @@ class Frontier:
 
         Args:
             state (State): The state to set as the new root of the exploration.
-
-        Raises:
-            TypeError: If the given state is not an instance of State class.
         """
-        if not isinstance(state, State):
-            raise TypeError("The given state is not an instance of State class.")
 
         self._container.clear()
         self._container.append(state)

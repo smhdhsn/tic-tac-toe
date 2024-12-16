@@ -3,11 +3,13 @@ This package is responsible for managing every state of the Tic-Tac-Toe game.
 """
 
 from typing import Dict
+from beartype import beartype
 from models import Player, Board, Mark
 from views import print_board
 from .rules import is_board_full, winner_check
 
 
+@beartype
 def run(max_player: Player, min_player: Player, board: Board) -> Mark:
     """
     This function is responsible for managing the states and the rules of the game.
@@ -19,21 +21,7 @@ def run(max_player: Player, min_player: Player, board: Board) -> Mark:
 
     Returns:
         Mark: The result of the game.
-
-    Raises:
-        TypeError: If the provided max_player object is not an instance of Player.
-        TypeError: If the provided min_player object is not an instance of Player.
-        TypeError: If the provided board object is not an instance of Board.
     """
-
-    if not isinstance(max_player, Player):
-        raise TypeError("Given max_player must be an instance of Player class.")
-
-    if not isinstance(min_player, Player):
-        raise TypeError("Given min_player must be an instance of Player class.")
-
-    if not isinstance(board, Board):
-        raise TypeError("Given board must be an instance of Board class.")
 
     players: Dict[Mark:Player] = {
         max_player.get_mark(): max_player,

@@ -3,6 +3,7 @@ This package is responsible for creating the state space of the Tic-Tac-Toe game
 """
 
 from typing import Dict
+from beartype import beartype
 from models import Board, State, Mark
 from game import get_empty_cells, winner_check
 
@@ -19,6 +20,7 @@ class StateSpace:
 
         self.visited_states: Dict[str, State] = {}
 
+    @beartype
     def create(self, state: State, mark: Mark) -> None:
         """
         Creates state space of the game.
@@ -28,16 +30,8 @@ class StateSpace:
             mark (Mark): The mark of the player in the turn.
 
         Raises:
-            TypeError: If the given state is not an instance of State class.
-            TypeError: If the given mark is not an instance of Mark class.
             ValueError: If the given mark is neither 'X' or 'O'.
         """
-
-        if not isinstance(state, State):
-            raise TypeError("The given state is not an instance of State class.")
-
-        if not isinstance(mark, Mark):
-            raise TypeError("The given mark is not an instance of Mark class.")
 
         if mark is Mark.EMPTY:
             raise ValueError("The given mark has to be either 'X' or 'O'.")
@@ -76,6 +70,7 @@ class StateSpace:
                 mark=Mark.O if mark == Mark.X else Mark.X,
             )
 
+    @beartype
     def get_hash(self, state: State, mark: Mark) -> str:
         """
         This function is responsible for getting the state's inner grid's string representation and
@@ -86,16 +81,8 @@ class StateSpace:
             str: Player's mark + string representation of the grid inside of the current state.
 
         Raises:
-            TypeError: If the given state is not an instance of State class.
-            TypeError: If the given mark is not an instance of Mark class.
             ValueError: If the given mark is neither 'X' or 'O'.
         """
-
-        if not isinstance(state, State):
-            raise TypeError("The given state is not an instance of State class.")
-
-        if not isinstance(mark, Mark):
-            raise TypeError("The given mark is not an instance of Mark class.")
 
         if mark is Mark.EMPTY:
             raise ValueError("The given mark has to be either 'X' or 'O'.")

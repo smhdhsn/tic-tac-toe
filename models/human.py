@@ -3,6 +3,7 @@ This package is the human player in the game.
 """
 
 from sys import exit as sys_exit
+from beartype import beartype
 from dto import Position
 from models import Player, Board
 
@@ -12,6 +13,7 @@ class Human(Player):
     This class holds the functionalities for the human player in the Tic-Tac-Toe game.
     """
 
+    @beartype
     def get_next_move(self, board: Board) -> Position:
         """
         Gets the next move of this player in a given board.
@@ -42,6 +44,7 @@ class Human(Player):
 
         return position
 
+    @beartype
     def _get_position_from_input(self, msg: str) -> int:
         """
         Get the position from the user.

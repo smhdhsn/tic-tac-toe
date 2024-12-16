@@ -3,6 +3,7 @@ This package is the ai player in the game.
 """
 
 from pickle import load
+from beartype import beartype
 from dto import Position
 from search import StateSpace, Frontier, min_value
 from models import Player, Board, State, Mark
@@ -13,6 +14,7 @@ class Agent(Player):
     This class holds the functionalities for the ai player in the Tic-Tac-Toe game.
     """
 
+    @beartype
     def __init__(self, mark: Mark) -> None:
         """
         Initializes the AI player with a specific mark and loads the state space.
@@ -52,6 +54,7 @@ class Agent(Player):
 
                 self.state_space = initial_state
 
+    @beartype
     def get_next_move(self, board: Board) -> Position:
         """
         Gets the next move of this player in a given board.
@@ -77,6 +80,7 @@ class Agent(Player):
 
         return best_move
 
+    @beartype
     def _compare_boards(self, first: Board, second: Board) -> Position:
         """
         Finds the difference between two given grids.
@@ -102,6 +106,7 @@ class Agent(Player):
 
         return None
 
+    @beartype
     def _update_current_state(self, board: Board) -> None:
         """
         Searches the state space to find the given board's corresponding state,

@@ -3,10 +3,12 @@ This package contains every game rule of the Tic-Tac-Toe game.
 """
 
 from typing import List
+from beartype import beartype
 from models import Board, Mark
 from dto import Position
 
 
+@beartype
 def get_turn_mark(board: Board) -> Mark:
     """
     Returns the mark that gets to play next on a given board.
@@ -28,6 +30,7 @@ def get_turn_mark(board: Board) -> Mark:
     return Mark.X if x <= o else Mark.O
 
 
+@beartype
 def get_empty_cells(grid: List[List[Mark]]) -> List[Position]:
     """
     Returns every available positions that can be taken on the board.
@@ -49,19 +52,14 @@ def get_empty_cells(grid: List[List[Mark]]) -> List[Position]:
     return available_positions
 
 
+@beartype
 def winner_check(board: Board) -> Mark | None:
     """
     Checks if the game is over and returns the result accordingly.
 
     Args:
         board (Board): The board to check the result of the game on.
-
-    Raises:
-        TypeError: If the provided board object is not an instance of Board.
     """
-
-    if not isinstance(board, Board):
-        raise TypeError("Given board must be an instance of Board class.")
 
     grid = board.get_grid()
 
@@ -82,6 +80,7 @@ def winner_check(board: Board) -> Mark | None:
     return None
 
 
+@beartype
 def is_board_full(board: Board) -> bool:
     """
     Checks if the board has an empty cell.
@@ -91,13 +90,7 @@ def is_board_full(board: Board) -> bool:
 
     Returns:
         bool: Weather the board has an empty cell or not.
-
-    Raises:
-        TypeError: If the provided board object is not an instance of Board.
     """
-
-    if not isinstance(board, Board):
-        raise TypeError("Given board must be an instance of Board class.")
 
     for row in board.get_grid():
         for cell in row:
@@ -107,6 +100,7 @@ def is_board_full(board: Board) -> bool:
     return True
 
 
+@beartype
 def utility(board: Board, mark: Mark, *, is_max_player: bool = True) -> int | None:
     """
     Utility function returns the score of the board for the minimax algorithm.
@@ -122,17 +116,7 @@ def utility(board: Board, mark: Mark, *, is_max_player: bool = True) -> int | No
             -1 if the minimizer has won,
              0 if it's a draw,
             None if the game is ongoing.
-
-    Raises:
-        TypeError: If the provided board object is not an instance of Board.
-        TypeError: If the provided boardmark object is not an instance of Mark.
     """
-
-    if not isinstance(board, Board):
-        raise TypeError("The given board must be an instance of Board class.")
-
-    if not isinstance(mark, Mark):
-        raise TypeError("The given mark must be an instance of Mark class.")
 
     result = winner_check(board)
     if result is None:

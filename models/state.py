@@ -4,6 +4,7 @@ Defines the State class representing nodes in the adversarial search space for t
 
 from __future__ import annotations
 from typing import List
+from beartype import beartype
 from dto import Position
 from .board import Board
 from .mark import Mark
@@ -14,6 +15,7 @@ class State:
     A representation of a state in the search space.
     """
 
+    @beartype
     def __init__(self, content: Board, *, parent_state: State | None = None) -> None:
         """
         Initializes a node to hold and manage a state of the game.
@@ -27,19 +29,14 @@ class State:
         self.next_states: List[State] = []
         self.value: Board = content
 
+    @beartype
     def append_next_state(self, state: State) -> None:
         """
         Appends a state to the list of next states.
 
         Args:
             state (State): The state to append.
-
-        Raises:
-            TypeError: If the provided state is not an instance of State class.
         """
-
-        if not isinstance(state, State):
-            raise TypeError("The provided state is not an instance of State class.")
 
         self.next_states.append(state)
 

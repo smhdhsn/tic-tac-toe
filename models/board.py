@@ -5,6 +5,7 @@ This module contains the Board class for managing a Tic-Tac-Toe game.
 from __future__ import annotations
 from typing import List
 from copy import deepcopy
+from beartype import beartype
 from dto import Position
 from .mark import Mark
 
@@ -14,6 +15,7 @@ class Board:
     This class is for managing the Tic-Tac-Toe game.
     """
 
+    @beartype
     def __init__(self, grid: List[List[Mark]] | None = None) -> None:
         """
         Initializes a 3x3 board with all cells set to EMPTY.
@@ -51,6 +53,7 @@ class Board:
 
         return "".join("".join(cell.value for cell in row) for row in grid)
 
+    @beartype
     def set_mark(self, position: Position, mark: Mark) -> None:
         """
         Sets a specified cell to a given mark.
@@ -68,6 +71,7 @@ class Board:
 
         self.grid[position.row][position.column] = mark
 
+    @beartype
     def get_mark(self, row: int, column: int) -> str:
         """
         Retrieves the mark inside a cell at a specified position in the grid.
@@ -88,6 +92,7 @@ class Board:
 
         return self.grid[row][column].value
 
+    @beartype
     def is_cell_empty(self, position: Position) -> bool:
         """
         Checks if a cell at a specified position is empty.
