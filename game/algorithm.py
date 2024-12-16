@@ -10,7 +10,7 @@ from .rules import is_board_full, winner_check
 
 
 @beartype
-def run(max_player: Player, min_player: Player, board: Board) -> Mark:
+def run(max_player: Player, min_player: Player, board: Board) -> Mark | None:
     """
     This function is responsible for managing the states and the rules of the game.
 
