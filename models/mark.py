@@ -29,3 +29,19 @@ class Mark(Enum):
     """
     A cell marked by player 'O'.
     """
+
+    def is_max_player(self) -> bool:
+        """
+        Determines if the current mark represents the maximizing player.
+
+        Returns:
+            bool: True if the mark is 'X' (maximizing player), False otherwise.
+
+        Raises:
+            ValueError: If the mark is 'EMPTY', as it does not represent a player.
+        """
+
+        if self == Mark.EMPTY:
+            raise ValueError("Empty mark doesn't have a role.")
+
+        return self == Mark.X

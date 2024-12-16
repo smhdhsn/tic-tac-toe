@@ -5,7 +5,7 @@ This package is the ai player in the game.
 from pickle import load
 from beartype import beartype
 from dto import Position
-from search import StateSpace, Frontier, min_value
+from search import StateSpace, Frontier, max_value, min_value
 from models import Player, Board, State, Mark
 
 
@@ -68,17 +68,72 @@ class Agent(Player):
 
         self._update_current_state(board)
 
+        best_state = self._get_best_state()
+        best_move = self._compare_boards(board, best_state.get_value())
+
+        return best_move
+
+    @beartype
+    def _get_best_state(self) -> State:
+        """
+        Determines the best next state for the agent based on its role as a player.
+
+        Returns:
+            State: The best next state for the agent according to the minimax strategy.
+        """
+
+        if self.get_mark().is_max_player():
+            return self._play_as_maximizing_player()
+
+        return self._play_as_minimizing_player()
+
+    @beartype
+    def _play_as_minimizing_player(self) -> State:
+        """
+        Finds the best next state assuming the agent is the minimizing player (O).
+
+        This method iterates through all possible next states from the current state and
+        uses the minimax algorithm's `min_value` function with O as the minimizing player.
+        It chooses the state that results in the smallest utility value, thereby minimizing
+        the opponent's advantage and optimizing the agent's outcome.
+
+        Returns:
+            State: The next state that yields the lowest utility value (best outcome for O).
+        """
+
         best_value: float = float("inf")
         best_state: State = None
         for state in self.current_state.get_next_states():
-            score = min_value(state, self.get_mark())
+            score = min_value(state)
             if score < best_value:
                 best_value = score
                 best_state = state
 
-        best_move = self._compare_boards(board, best_state.get_value())
+        return best_state
 
-        return best_move
+    @beartype
+    def _play_as_maximizing_player(self) -> State:
+        """
+        Finds the best next state assuming the player is the maximizing player (X).
+
+        This method iterates through all possible next states from the current state and
+        uses the minimax algorithm's `max_value` function with X as the maximizing player.
+        It selects the state that returns the greatest utility value, thereby maximizing the
+        player's advantage.
+
+        Returns:
+            State: The next state that yields the highest utility value (best outcome for X).
+        """
+
+        best_value: float = float("-inf")
+        best_state: State = None
+        for state in self.current_state.get_next_states():
+            score = max_value(state)
+            if score > best_value:
+                best_value = score
+                best_state = state
+
+        return best_state
 
     @beartype
     def _compare_boards(self, first: Board, second: Board) -> Position:

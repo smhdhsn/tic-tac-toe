@@ -7,7 +7,7 @@ from models import Mark
 
 
 @beartype
-def announce_result(mark: Mark) -> None:
+def announce_result(mark: Mark | None) -> None:
     """
     Announcing the result of the game.
 
@@ -15,7 +15,7 @@ def announce_result(mark: Mark) -> None:
         mark (Mark): The mark of the winner player.
     """
 
-    if mark == Mark.EMPTY:
+    if mark is None:
         print("Game ended with a draw.")
     else:
         print(f"{mark.value} won the game!")
