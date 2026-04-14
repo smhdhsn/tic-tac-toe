@@ -28,9 +28,12 @@ def get_turn_mark(board: Board) -> Mark:
     return Mark.X if x <= o else Mark.O
 
 
-def get_empty_cells(board: Board) -> List[Position]:
+def get_empty_cells(grid: List[List[Mark]]) -> List[Position]:
     """
     Returns every available positions that can be taken on the board.
+
+    Args:
+        grid (List[List[Mark]]): The grid to search empty cells on.
 
     Returns:
         List[Position]: The list of empty positions on the board.
@@ -38,7 +41,7 @@ def get_empty_cells(board: Board) -> List[Position]:
 
     available_positions: List[Position] = []
 
-    for row_idx, row in enumerate(board.get_grid()):
+    for row_idx, row in enumerate(grid):
         for cell_idx, cell in enumerate(row):
             if cell == Mark.EMPTY:
                 available_positions.append(Position(row=row_idx, column=cell_idx))

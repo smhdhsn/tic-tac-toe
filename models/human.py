@@ -27,22 +27,19 @@ class Human(Player):
         print("Please enter your next move:")
 
         while True:
-            row = self._get_position_from_input("Row:    ")
-            column = self._get_position_from_input("Column: ")
+            position = Position(
+                row=self._get_position_from_input("Row:    "),
+                column=self._get_position_from_input("Column: "),
+            )
 
             try:
-                if board.is_cell_empty(row=row, column=column):
+                if board.is_cell_empty(position):
                     break
 
                 print("The cell is already occupied. Please try again.")
 
             except IndexError:
                 print("Invalid position. Please try again.")
-
-        position = Position(
-            row=row,
-            column=column,
-        )
 
         return position
 

@@ -46,11 +46,8 @@ def run(max_player: Player, min_player: Player, board: Board) -> Mark:
     while not is_board_full(board):
         print_board(board)
 
-        position = player.get_next_move(board)
-
         board.set_mark(
-            row=position.get_row(),
-            column=position.get_column(),
+            position=player.get_next_move(board),
             mark=player.get_mark(),
         )
 

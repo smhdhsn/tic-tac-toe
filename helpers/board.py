@@ -6,9 +6,13 @@ from os import system, name as os_name
 from models import Board
 
 
-def print_board(board: Board) -> None:
+def print_board(board: Board, clear: bool = True) -> None:
     """
     Prints the board to the console.
+
+    Args:
+        board (Board): The board to print.
+        clear (bool): Clear screen before printing.
 
     Raises:
         ValueError: If the provided object is not an instance of Board.
@@ -17,7 +21,9 @@ def print_board(board: Board) -> None:
     if not isinstance(board, Board):
         raise ValueError("Given board must be an instance of Board class.")
 
-    _clear_screen()
+    if clear:
+        _clear_screen()
+
     print(
         "     0   1   2  ",
         "   ┌───┬───┬───┐",
