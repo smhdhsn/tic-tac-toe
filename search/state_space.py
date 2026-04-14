@@ -6,6 +6,7 @@ from typing import Dict
 from beartype import beartype
 from models import Board, State, Mark
 from game import get_empty_cells, winner_check, get_turn_mark
+from copy import deepcopy
 
 
 class StateSpace:
@@ -54,7 +55,7 @@ class StateSpace:
         positions = get_empty_cells(grid)
 
         for position in positions:
-            board = Board(grid=grid)
+            board = Board(grid=deepcopy(grid))
             board.set_mark(
                 position=position,
                 mark=mark,
