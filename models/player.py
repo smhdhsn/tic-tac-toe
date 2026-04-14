@@ -7,6 +7,7 @@ from dto import Position
 from .board import Board
 from .mark import Mark
 
+
 class Player(ABC):
     """
     Player is the class for a player in Tic-Tac-Toe game.

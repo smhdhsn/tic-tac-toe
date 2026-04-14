@@ -6,6 +6,7 @@ from dto import Position
 from .player import Player
 from .board import Board
 
+
 class AI(Player):
     """
     This class holds the functionalities for the ai player in the Tic-Tac-Toe game.

@@ -9,10 +9,4 @@ from .mark import Mark
 from .ai import AI
 
 # Expose methods at the package level.
-__all__ = [
-    'Player',
-    'Board',
-    'Human',
-    'Mark',
-    'AI'
-]
+__all__ = ["Player", "Board", "Human", "Mark", "AI"]

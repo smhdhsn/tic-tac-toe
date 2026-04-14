@@ -7,6 +7,7 @@ from dto import Position
 from .player import Player
 from .board import Board
 
+
 class Human(Player):
     """
     This class holds the functionalities for the human player in the Tic-Tac-Toe game.

@@ -6,6 +6,7 @@ from typing import List
 from models import Board, Mark
 from dto import Position
 
+
 def get_turn_mark(board: Board) -> Mark:
     """
     Returns the mark that gets to play next on a given board.
@@ -20,11 +21,12 @@ def get_turn_mark(board: Board) -> Mark:
     for row in board.get_grid():
         for cell in row:
             if cell == Mark.X:
-                x+=1
+                x += 1
             elif cell == Mark.O:
-                o+=1
+                o += 1
 
     return Mark.X if x <= o else Mark.O
+
 
 def get_empty_cells(board: Board) -> List[Position]:
     """
@@ -43,7 +45,8 @@ def get_empty_cells(board: Board) -> List[Position]:
 
     return available_positions
 
-def winner_check(board: Board) -> Mark|None:
+
+def winner_check(board: Board) -> Mark | None:
     """
     Checks if the game is over and returns the result accordingly.
 
@@ -74,6 +77,7 @@ def winner_check(board: Board) -> Mark|None:
         return grid[0][2]
 
     return None
+
 
 def is_board_full(board: Board) -> bool:
     """
