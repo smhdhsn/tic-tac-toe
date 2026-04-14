@@ -4,8 +4,7 @@ This package is the human player in the game.
 
 from sys import exit as sys_exit
 from dto import Position
-from .player import Player
-from .board import Board
+from . import Player, Board
 
 
 class Human(Player):

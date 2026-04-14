@@ -3,7 +3,7 @@ This module contains the Board class for managing a Tic-Tac-Toe game.
 """
 
 from typing import List
-import copy
+from copy import deepcopy
 from dto import Position
 from .mark import Mark
 
@@ -22,7 +22,7 @@ class Board:
         """
 
         if grid is not None:
-            self.grid: List[List[Mark]] = copy.deepcopy(grid)
+            self.grid: List[List[Mark]] = deepcopy(grid)
         else:
             self.grid: List[List[Mark]] = [
                 [Mark.EMPTY for _ in range(3)] for _ in range(3)
@@ -36,7 +36,7 @@ class Board:
             List[List[Mark]]: The grid inside the board.
         """
 
-        return copy.deepcopy(self.grid)
+        return deepcopy(self.grid)
 
     def set_mark(self, position: Position, mark: Mark) -> None:
         """

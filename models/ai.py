@@ -5,10 +5,7 @@ This package is the ai player in the game.
 from pickle import load
 from search import create_state_space
 from dto import Position
-from .player import Player
-from .board import Board
-from .state import State
-from .mark import Mark
+from . import Player, Board, State, Mark
 
 
 class AI(Player):
@@ -26,9 +23,9 @@ class AI(Player):
 
         super().__init__(mark)
         self.state_space: State = None
-        self.load_state_space()
+        self._load_state_space()
 
-    def load_state_space(self) -> None:
+    def _load_state_space(self) -> None:
         """
         Loads the state space from a pickled file for the AI to reference during gameplay.
 
@@ -42,7 +39,7 @@ class AI(Player):
                 with open("export/state_space.pkl", "rb") as file:
                     self.state_space = load(file)
 
-            except Exception:
+            except FileNotFoundError:
                 initial_state = Board()
                 initial_state: State = State(initial_state)
 
