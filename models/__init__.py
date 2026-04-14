@@ -1,8 +1,7 @@
 """
-This module contains the functions and constants related to the tick tack toe game.
+This module contains models in the act in a Tic-Tac-Toe game.
 """
 
-from .position import Position
 from .player import Player
 from .board import Board
 from .human import Human
@@ -11,7 +10,6 @@ from .ai import AI
 
 # Expose methods at the package level.
 __all__ = [
-    'Position',
     'Player',
     'Board',
     'Human',

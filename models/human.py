@@ -3,7 +3,7 @@ This package is the human player in the game.
 """
 
 from sys import exit as sys_exit
-from .position import Position
+from dto import Position
 from .player import Player
 from .board import Board
 
@@ -39,8 +39,8 @@ class Human(Player):
                 print("Invalid position. Please try again.")
 
         position = Position(
+            row=row,
             column=column,
-            row=row
         )
 
         return position

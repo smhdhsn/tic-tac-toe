@@ -7,7 +7,7 @@ class Position:
     Represents a position on the board.
     """
 
-    def __init__(self, column: int, row: int):
+    def __init__(self, row: int, column: int,):
         """
         Initializes the Position object.
 

@@ -2,7 +2,7 @@
 This package is the ai player in the game.
 """
 
-from .position import Position
+from dto import Position
 from .player import Player
 from .board import Board
 
