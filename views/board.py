@@ -15,11 +15,11 @@ def print_board(board: Board, *, clear: bool = True) -> None:
         clear (bool): Clear screen before printing.
 
     Raises:
-        ValueError: If the provided object is not an instance of Board.
+        TypeError: If the provided object is not an instance of Board.
     """
 
     if not isinstance(board, Board):
-        raise ValueError("Given board must be an instance of Board class.")
+        raise TypeError("Given board must be an instance of Board class.")
 
     if clear:
         _clear_screen()

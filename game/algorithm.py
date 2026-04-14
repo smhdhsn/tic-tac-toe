@@ -21,19 +21,19 @@ def run(max_player: Player, min_player: Player, board: Board) -> Mark:
         Mark: The result of the game.
 
     Raises:
-        ValueError: If the provided max_player object is not an instance of Player.
-        ValueError: If the provided min_player object is not an instance of Player.
-        ValueError: If the provided board object is not an instance of Board.
+        TypeError: If the provided max_player object is not an instance of Player.
+        TypeError: If the provided min_player object is not an instance of Player.
+        TypeError: If the provided board object is not an instance of Board.
     """
 
     if not isinstance(max_player, Player):
-        raise ValueError("Given max_player must be an instance of Player class.")
+        raise TypeError("Given max_player must be an instance of Player class.")
 
     if not isinstance(min_player, Player):
-        raise ValueError("Given min_player must be an instance of Player class.")
+        raise TypeError("Given min_player must be an instance of Player class.")
 
     if not isinstance(board, Board):
-        raise ValueError("Given board must be an instance of Board class.")
+        raise TypeError("Given board must be an instance of Board class.")
 
     players: Dict[Mark:Player] = {
         max_player.get_mark(): max_player,

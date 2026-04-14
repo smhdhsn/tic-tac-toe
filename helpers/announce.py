@@ -13,11 +13,11 @@ def announce_result(mark: Mark) -> None:
         mark (Mark): The mark of the winner player.
 
     Raises:
-        ValueError: If the provided object is not an instance of Mark.
+        TypeError: If the provided object is not an instance of Mark.
     """
 
     if not isinstance(mark, Mark):
-        raise ValueError("Given mark must be an instance of Mark class.")
+        raise TypeError("Given mark must be an instance of Mark class.")
 
     if mark == Mark.EMPTY:
         print("Game ended with a draw.")

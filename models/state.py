@@ -35,11 +35,11 @@ class State:
             state (State): The state to append.
 
         Raises:
-            ValueError: If the provided state is not an instance of State class.
+            TypeError: If the provided state is not an instance of State class.
         """
 
         if not isinstance(state, State):
-            raise ValueError("The provided state is not an instance of State class.")
+            raise TypeError("The provided state is not an instance of State class.")
 
         self.next_states.append(state)
 
