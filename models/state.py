@@ -14,7 +14,7 @@ class State:
     A representation of a state in the search space.
     """
 
-    def __init__(self, parent_state: State | None, content: Board) -> None:
+    def __init__(self, content: Board, *, parent_state: State | None = None) -> None:
         """
         Initializes a node to hold and manage a state of the game.
 
@@ -25,7 +25,7 @@ class State:
 
         self.parent_state: State = parent_state
         self.next_states: List[State] = []
-        self.board: Board = content
+        self.value: Board = content
 
     def append_next_state(self, state: State) -> None:
         """
@@ -91,7 +91,7 @@ class State:
             List[List[Mark]]: The grid representing board of the game.
         """
 
-        return self.board.get_grid()
+        return self.value.get_grid()
 
     def path_cost(self) -> int:
         """

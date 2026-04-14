@@ -6,7 +6,7 @@ from os import system, name as os_name
 from models import Board
 
 
-def print_board(board: Board, clear: bool = True) -> None:
+def print_board(board: Board, *, clear: bool = True) -> None:
     """
     Prints the board to the console.
 
