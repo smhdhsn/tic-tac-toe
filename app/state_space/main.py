@@ -6,8 +6,6 @@ from pickle import dump
 from models import State, Board, Mark
 from search import create_state_space
 
-from helpers import print_board
-
 
 def main():
     """

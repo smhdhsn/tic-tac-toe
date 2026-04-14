@@ -3,7 +3,7 @@ This package is responsible for creating the state space of the Tic-Tac-Toe game
 """
 
 from models import Board, State, Mark
-from game import get_empty_cells
+from game import get_empty_cells, winner_check
 
 
 def create_state_space(state: State, mark: Mark):
@@ -28,6 +28,9 @@ def create_state_space(state: State, mark: Mark):
 
     if mark is Mark.EMPTY:
         raise ValueError("The given mark has to be either 'X' or 'O'.")
+
+    if winner_check(state.get_value()) is not None:
+        return
 
     grid = state.get_content()
     positions = get_empty_cells(grid)
