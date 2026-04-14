@@ -7,7 +7,7 @@ from .state import State
 from .board import Board
 from .human import Human
 from .mark import Mark
-from .ai import AI
+from .agent import Agent
 
 # Expose methods at the package level.
-__all__ = ["Player", "State", "Board", "Human", "Mark", "AI"]
+__all__ = ["Player", "State", "Board", "Human", "Agent", "Mark"]
