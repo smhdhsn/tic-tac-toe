@@ -38,6 +38,18 @@ class Board:
 
         return deepcopy(self.grid)
 
+    def get_grid_hash(self) -> str:
+        """
+        Returns string representation of the board which is in this node.
+
+        Returns:
+            str: The string representation of the grid.
+        """
+
+        grid = self.get_grid()
+
+        return "".join("".join(cell.value for cell in row) for row in grid)
+
     def set_mark(self, position: Position, mark: Mark) -> None:
         """
         Sets a specified cell to a given mark.

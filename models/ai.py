@@ -3,7 +3,7 @@ This package is the ai player in the game.
 """
 
 from pickle import load
-from search import create_state_space
+from search import StateSpace
 from dto import Position
 from . import Player, Board, State, Mark
 
@@ -43,7 +43,7 @@ class AI(Player):
                 initial_state = Board()
                 initial_state: State = State(initial_state)
 
-                create_state_space(
+                StateSpace().create(
                     mark=self.get_mark(),
                     state=initial_state,
                 )
