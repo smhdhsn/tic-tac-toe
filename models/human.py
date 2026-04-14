@@ -26,11 +26,11 @@ class Human(Player):
         print("Please enter your next move:")
 
         while True:
-            column = self._get_position_from_input("Column: ")
             row = self._get_position_from_input("Row:    ")
+            column = self._get_position_from_input("Column: ")
 
             try:
-                if board.is_cell_empty(column, row):
+                if board.is_cell_empty(row=row, column=column):
                     break
 
                 print("The cell is already occupied. Please try again.")

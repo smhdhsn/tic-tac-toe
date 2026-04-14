@@ -23,8 +23,8 @@ def main():
         position = max_player.get_next_move(board)
 
         board.set_mark(
-            column=position.get_column(),
             row=position.get_row(),
+            column=position.get_column(),
             mark=max_player.get_mark(),
         )
 
