@@ -5,6 +5,7 @@ Entry point for the Tic-Tac-Toe application.
 from samples import create_empty_board
 from inputs import read_player_mark
 from outputs import print_board
+from models import Player
 
 def main():
     """
@@ -13,9 +14,11 @@ def main():
 
     initial_state = create_empty_board()
 
-    max_player = read_player_mark("Choose your marker (X or O): ")
+    player_mark = read_player_mark("Choose your mark (X or O): ")
 
-    initial_state.set_cell(1, 1, max_player)
+    max_player = Player(player_mark)
+
+    initial_state.set_mark(1, 1, max_player.get_mark())
 
     print_board(initial_state)
 
