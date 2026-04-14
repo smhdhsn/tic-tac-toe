@@ -64,10 +64,14 @@ class Board:
 
         Raises:
             IndexError: If the specified row or column is out of bounds.
+            ValueError: If the specified cell is already occupied.
         """
 
         if not (0 <= position.row < 3 and 0 <= position.column < 3):
             raise IndexError("Row and column indices must be between 0 and 2.")
+
+        if self.grid[position.row][position.column] != Mark.EMPTY:
+            raise ValueError("The selected cell is already occupied.")
 
         self.grid[position.row][position.column] = mark
 

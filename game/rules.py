@@ -119,15 +119,13 @@ def utility(board: Board, mark: Mark, *, is_max_player: bool = True) -> int | No
     """
 
     result = winner_check(board)
+
     if result is None:
         if is_board_full(board):
             return 0
-
         return None
 
-    max_player_mark = mark if is_max_player else (Mark.X if mark == Mark.O else Mark.X)
-
-    if result == max_player_mark:
+    if result == Mark.X:
         return 1
 
     return -1

@@ -15,11 +15,10 @@ def main():
     empty_board: Board = Board()
     initial_state: State = State(empty_board)
 
-    for starting_player in [Mark.X, Mark.O]:
-        StateSpace().create(
-            initial_state,
-            starting_player,
-        )
+    StateSpace().create(
+        initial_state,
+        Mark.X,
+    )
 
     with open("export/state_space.pkl", "wb") as file:
         dump(initial_state, file)

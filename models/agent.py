@@ -44,12 +44,12 @@ class Agent(Player):
                     self.state_space = load(file)
 
             except FileNotFoundError:
-                initial_state = Board()
-                initial_state: State = State(initial_state)
+                initial_board = Board()
+                initial_state: State = State(initial_board)
 
                 StateSpace().create(
-                    mark=self.get_mark(),
                     state=initial_state,
+                    mark=Mark.X,
                 )
 
                 self.state_space = initial_state
@@ -153,7 +153,7 @@ class Agent(Player):
 
         for row_idx, row in enumerate(first_grid):
             for column_idx, cell in enumerate(row):
-                if cell is not second_grid[row_idx][column_idx]:
+                if cell != second_grid[row_idx][column_idx]:
                     return Position(
                         row=row_idx,
                         column=column_idx,

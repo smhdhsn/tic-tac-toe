@@ -8,5 +8,8 @@ run:
 state_space:
 	@python -m app.state_space.main
 
+warmup:
+	@python -m app.warmup.main
+
 lint:
 	@pylint --ignore=.venv .

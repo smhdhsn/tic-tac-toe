@@ -3,3 +3,5 @@
 __pycache__/
 export/
 *.pyc
+app/warmup
+app/warmup/*

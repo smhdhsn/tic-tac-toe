@@ -23,13 +23,13 @@ def run(player_a: Player, player_b: Player, board: Board) -> Mark | None:
         Mark: The result of the game.
     """
 
-    players: Dict[Mark:Player] = {
+    players: Dict[Mark, Player] = {
         player_a.get_mark(): player_a,
         player_b.get_mark(): player_b,
     }
 
     player: Player = players[Mark.X]
-    result: Mark | None
+    result: Mark | None = None
 
     while not is_board_full(board):
         print_board(board)

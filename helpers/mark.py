@@ -23,9 +23,8 @@ def decide_marks(msg: str) -> Tuple[Mark, Mark]:
     """
 
     human_input = input(msg).strip().upper()
-    human_mark = Mark(human_input)
 
-    if human_mark not in {Mark.X, Mark.O}:
+    if human_input not in {"X", "O"}:
         raise ValueError("Please enter either 'X' or 'O'.")
 
     human_mark = Mark(human_input)
