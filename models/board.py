@@ -55,6 +55,26 @@ class Board:
 
         return self.grid[column][row].value
 
+    def is_cell_empty(self, column: int, row: int) -> bool:
+        """
+        Checks if a cell at a specified position is empty.
+
+        Args:
+            column (int): The column index in the grid (0-2).
+            row (int): The row index in the grid (0-2).
+
+        Returns:
+            bool: True if the cell is empty, False otherwise.
+
+        Raises:
+            IndexError: If the specified row or column is out of bounds.
+        """
+
+        if not (0 <= column < 3 and 0 <= row < 3):
+            raise IndexError("Column and row indices must be between 0 and 2.")
+
+        return self.grid[column][row] == Mark.EMPTY
+
     def print(self) -> None:
         """
         Prints the board to the console.
