@@ -1,4 +1,4 @@
-# Tic-Tac-Toe Game – State Space Exploration and AI Strategy
+# Tic-Tac-Toe Game – Minimax Algorithm
 
 This project is a modular, object-oriented implementation of Tic-Tac-Toe that includes a state-space search, AI decision-making (via Minimax), and a clear, extensible code structure. It provides:
 
