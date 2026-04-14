@@ -7,6 +7,11 @@ from enum import Enum
 class Mark(Enum):
     """
     Enum for possible marks inside each cell in a Tic-Tac-Toe board.
+
+    Attributes:
+        EMPTY (str): Represents an empty cell.
+        X (str): Represents a cell marked with 'X'.
+        O (str): Represents a cell marked with 'O'.
     """
 
     EMPTY: str = ' '
