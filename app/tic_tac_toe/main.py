@@ -16,12 +16,12 @@ def main():
 
     human_mark, agent_mark = decide_marks("Choose your mark (X or O): ")
 
-    max_player = Human(human_mark)
-    min_player = Agent(agent_mark)
+    player_a = Human(human_mark)
+    player_b = Agent(agent_mark)
 
     result = run(
-        max_player=max_player,
-        min_player=min_player,
+        player_a=player_a,
+        player_b=player_b,
         board=board,
     )
 

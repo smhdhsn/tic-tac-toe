@@ -10,13 +10,13 @@ from .rules import is_board_full, winner_check
 
 
 @beartype
-def run(max_player: Player, min_player: Player, board: Board) -> Mark | None:
+def run(player_a: Player, player_b: Player, board: Board) -> Mark | None:
     """
     This function is responsible for managing the states and the rules of the game.
 
     Args:
-        max_player (Player): The player who wants to maximize the global score of the game.
-        min_player (Player): The player who wants to minimize the global score of the game.
+        player_a (Player): Player a in the game.
+        player_b (Player): Player b in the game.
         board (Board): The board in which players will play on.
 
     Returns:
@@ -24,8 +24,8 @@ def run(max_player: Player, min_player: Player, board: Board) -> Mark | None:
     """
 
     players: Dict[Mark:Player] = {
-        max_player.get_mark(): max_player,
-        min_player.get_mark(): min_player,
+        player_a.get_mark(): player_a,
+        player_b.get_mark(): player_b,
     }
 
     player: Player = players[Mark.X]
