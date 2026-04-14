@@ -4,10 +4,15 @@ This module contains the functions and constants related to the tick tack toe ga
 
 from .player import Player
 from .board import Board
+from .human import Human
 from .mark import Mark
+from .ai import AI
 
+# Expose methods at the package level.
 __all__ = [
     'Player',
     'Board',
-    'Mark'
+    'Human',
+    'Mark',
+    'AI'
 ]
