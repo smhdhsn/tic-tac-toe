@@ -1,9 +1,9 @@
 """
-Entry point for the ticktacktoe application.
+Entry point for the Tic-Tac-Toe application.
 """
 
 from samples import create_empty_board
-from inputs import read_player_marker
+from inputs import read_player_mark
 from outputs import print_board
 
 def main():
@@ -13,19 +13,9 @@ def main():
 
     initial_state = create_empty_board()
 
-    max_player = read_player_marker("Choose your marker (X or O): ")
+    max_player = read_player_mark("Choose your marker (X or O): ")
 
-    initial_state[0][0] = max_player
-    initial_state[0][1] = max_player
-    initial_state[0][2] = max_player
-
-    initial_state[1][0] = max_player
-    initial_state[1][1] = max_player
-    initial_state[1][2] = max_player
-
-    initial_state[2][0] = max_player
-    initial_state[2][1] = max_player
-    initial_state[2][2] = max_player
+    initial_state.set_cell(1, 1, max_player)
 
     print_board(initial_state)
 

@@ -2,8 +2,10 @@
 This module contains the functions and constants related to the tick tack toe game.
 """
 
-from .mark import Mark
+from .board import Board
+from .cell import Cell
 
 __all__ = [
-    'Mark',
+    'Board',
+    'Cell'
 ]
