@@ -81,7 +81,7 @@ cd <your-project-folder>
 ### 2. Install dependencies
 
 ```bash
-pip install beartype
+pip install -r requirements.txt
 ```
 
 ---
