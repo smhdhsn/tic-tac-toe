@@ -71,7 +71,7 @@ class Agent(Player):
         best_value: float = float("inf")
         best_state: State = None
         for state in self.current_state.get_next_states():
-            score = min_value(state, Mark.X if self.get_mark() == Mark.O else Mark.O)
+            score = min_value(state, self.get_mark())
             if score < best_value:
                 best_value = score
                 best_state = state
