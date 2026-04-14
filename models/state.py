@@ -131,3 +131,13 @@ class State:
                 path_cost += 1
 
         return path_cost
+
+    def is_leaf(self) -> bool:
+        """
+        Check if the state is a leaf node.
+
+        Returns:
+            bool: True if the state is a leaf node, False otherwise.
+        """
+
+        return len(self.next_states) == 0

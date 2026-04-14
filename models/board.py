@@ -2,6 +2,7 @@
 This module contains the Board class for managing a Tic-Tac-Toe game.
 """
 
+from __future__ import annotations
 from typing import List
 from copy import deepcopy
 from dto import Position
