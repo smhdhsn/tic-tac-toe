@@ -3,8 +3,8 @@ This package is responsible for managing every state of the Tic-Tac-Toe game.
 """
 
 from models import Player, Board, Mark
-from .rules import is_board_full, is_board_full, winner_check
 from helpers import print_board
+from .rules import is_board_full, winner_check
 
 def start_game(max_player: Player, min_player: Player, board: Board) -> Mark:
     """
@@ -33,6 +33,7 @@ def start_game(max_player: Player, min_player: Player, board: Board) -> Mark:
     if not isinstance(board, Board):
         raise ValueError("Given board must be an instance of Board class.")
 
+    result: Mark|None
     while not is_board_full(board):
         print_board(board)
 
@@ -44,6 +45,10 @@ def start_game(max_player: Player, min_player: Player, board: Board) -> Mark:
             mark=max_player.get_mark(),
         )
 
+        result = winner_check(board)
+        if result is not None:
+            break
+
     print_board(board)
 
-    return Mark.EMPTY
+    return result

@@ -17,7 +17,7 @@ class Board:
         """
 
         self.grid: List[List[Mark]] = [[Mark.EMPTY for _ in range(3)] for _ in range(3)]
-    
+
     def get_grid(self) -> List[List[Mark]]:
         """
         Returns a copy of the board's grid.
