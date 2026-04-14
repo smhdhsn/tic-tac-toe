@@ -2,10 +2,12 @@
 This module holds functions for the operations related to minimax algorithm.
 """
 
+from beartype import beartype
 from models import State, Mark
 from game import utility
 
 
+@beartype
 def max_value(state: State, mark: Mark) -> float:
     """
     Computes the maximum utility value from the given state.
@@ -32,6 +34,7 @@ def max_value(state: State, mark: Mark) -> float:
     return value
 
 
+@beartype
 def min_value(state: State, mark: Mark) -> float:
     """
     Computes the minimum utility value from the given state.

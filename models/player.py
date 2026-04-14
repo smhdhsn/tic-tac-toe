@@ -3,6 +3,7 @@ This package defines the player for the Tic-Tac-Toe game.
 """
 
 from abc import ABC, abstractmethod
+from beartype import beartype
 from dto import Position
 from .board import Board
 from .mark import Mark
@@ -13,19 +14,14 @@ class Player(ABC):
     Player is the class for a player in Tic-Tac-Toe game.
     """
 
+    @beartype
     def __init__(self, mark: Mark) -> None:
         """
         Initializes a player with given mark.
 
         Args:
             mark (Mark): The mark for this player.
-
-        Raises:
-            TypeError: If the given mark is not an instance of the Mark.
         """
-
-        if not isinstance(mark, Mark):
-            raise TypeError("Given mark must be an instance of Mark class.")
 
         self.mark: Mark = mark
 

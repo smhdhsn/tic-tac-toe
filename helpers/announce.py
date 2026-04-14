@@ -2,22 +2,18 @@
 This package contains the functions for announcing the result of the Tic-Tac-Toe game.
 """
 
+from beartype import beartype
 from models import Mark
 
 
+@beartype
 def announce_result(mark: Mark) -> None:
     """
     Announcing the result of the game.
 
     Args:
         mark (Mark): The mark of the winner player.
-
-    Raises:
-        TypeError: If the provided object is not an instance of Mark.
     """
-
-    if not isinstance(mark, Mark):
-        raise TypeError("Given mark must be an instance of Mark class.")
 
     if mark == Mark.EMPTY:
         print("Game ended with a draw.")
