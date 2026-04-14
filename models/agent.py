@@ -4,7 +4,7 @@ This package is the ai player in the game.
 
 from pickle import load
 from dto import Position
-from search import StateSpace, Frontier, max_value
+from search import StateSpace, Frontier, min_value
 from models import Player, Board, State, Mark
 
 
@@ -65,19 +65,15 @@ class Agent(Player):
 
         self._update_current_state(board)
 
-        best_value: float = float("-inf")
+        best_value: float = float("inf")
         best_state: State = None
         for state in self.current_state.get_next_states():
-            score = max_value(state, self.get_mark())
-            if best_value < score:
+            score = min_value(state, self.get_mark())
+            if best_value > score:
                 best_value = score
                 best_state = state
 
         best_move = self._compare_boards(board, best_state.get_value())
-
-        # print(best_move.row, best_move.column)
-        # print_board(self.current_state.get_value(), clear=False)
-        # sleep(10)
 
         return best_move
 
@@ -124,7 +120,7 @@ class Agent(Player):
         while not self.frontier.is_empty():
             state = self.frontier.pop()
 
-            if state.get_content_hash() is board.get_grid_hash():
+            if state.get_content_hash() == board.get_grid_hash():
                 self.frontier.set_root(state)
                 self.current_state = state
                 return
