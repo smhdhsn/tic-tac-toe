@@ -105,3 +105,45 @@ def is_board_full(board: Board) -> bool:
                 return False
 
     return True
+
+
+def utility(board: Board, mark: Mark, *, is_max_player: bool = True) -> int | None:
+    """
+    Utility function returns the score of the board for the minimax algorithm.
+
+    Args:
+        board (Board): The board to evaluate.
+        mark (Mark): The mark of the player to calculate the utility for.
+        is_max_player (bool): A flag to indicate if the given mark is the max player or not.
+
+    Returns:
+        int | None: The utility value of the board state:
+            +1 if the maximizer has won,
+            -1 if the minimizer has won,
+             0 if it's a draw,
+            None if the game is ongoing.
+
+    Raises:
+        ValueError: If the provided board object is not an instance of Board.
+        ValueError: If the provided boardmark object is not an instance of Mark.
+    """
+
+    if not isinstance(board, Board):
+        raise ValueError("The given board must be an instance of Board class.")
+
+    if not isinstance(mark, Mark):
+        raise ValueError("The given mark must be an instance of Mark class.")
+
+    result = winner_check(board)
+    if result is None:
+        if is_board_full(board):
+            return 0
+
+        return None
+
+    max_player_mark = mark if is_max_player else (Mark.X if mark == Mark.O else Mark.X)
+
+    if result == max_player_mark:
+        return 1
+
+    return -1
